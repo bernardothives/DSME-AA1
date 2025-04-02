@@ -1,5 +1,3 @@
-// constants/MenuItems.ts
-
 export interface MenuItemType {
     id: string;
     name: string;
