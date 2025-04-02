@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   Text,
   View,
@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { Stack } from "expo-router";
+import { Stack, useFocusEffect } from "expo-router"; // useFocusEffect aqui
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS } from "@/constants/Colors";
 
@@ -23,21 +23,26 @@ interface CartItem {
 export default function ShoppingCart() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  useEffect(() => {
-    loadCart();
-  }, []);
-
   // Carrega o carrinho do AsyncStorage
   const loadCart = async () => {
     try {
       const data = await AsyncStorage.getItem("cart");
       if (data) {
         setCartItems(JSON.parse(data));
+      } else {
+        setCartItems([]);
       }
     } catch (error) {
       console.error("Erro ao carregar o carrinho:", error);
     }
   };
+
+  // Executa o loadCart sempre que a tela ficar em foco
+  useFocusEffect(
+    useCallback(() => {
+      loadCart();
+    }, [])
+  );
 
   // Atualiza a quantidade de um item no carrinho
   const updateQuantity = async (index: number, newQuantity: number) => {
