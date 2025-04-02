@@ -18,8 +18,8 @@ export default function ProgramacaoSemanal() {
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }}>
         <Stack screenOptions={{ headerShown: false }} />
+        <Text style={styles.header}>Programação Semanal</Text>
         <ScrollView contentContainerStyle={styles.container}>
-          <Text style={styles.header}>Programação Semanal</Text>
           {eventsData.days.map((day) => (
             <View key={day.day} style={styles.daySection}>
               <Text style={styles.dayTitle}>{day.day}</Text>

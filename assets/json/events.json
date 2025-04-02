@@ -5,7 +5,7 @@
         "events": [
           {
             "id": 1,
-            "artist": "Artista 1",
+            "artist": "Martinho da Vila",
             "time": "18:00",
             "video": "https://www.w3schools.com/html/mov_bbb.mp4"
           },
