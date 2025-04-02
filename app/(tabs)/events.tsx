@@ -11,7 +11,7 @@ import { Stack } from "expo-router";
 import { ResizeMode, Video } from "expo-av";
 import { COLORS } from "@/constants/Colors";
 // Importa os dados da programação do arquivo JSON
-import eventsData from "@/assets/json/events.json";
+import { events } from "@/constants/Events";
 
 export default function ProgramacaoSemanal() {
   return (
@@ -20,7 +20,7 @@ export default function ProgramacaoSemanal() {
         <Stack screenOptions={{ headerShown: false }} />
         <Text style={styles.header}>Programação Semanal</Text>
         <ScrollView contentContainerStyle={styles.container}>
-          {eventsData.days.map((day) => (
+          {events.days.map((day) => (
             <View key={day.day} style={styles.daySection}>
               <Text style={styles.dayTitle}>{day.day}</Text>
               <ScrollView
