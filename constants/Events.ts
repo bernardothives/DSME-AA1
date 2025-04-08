@@ -5,15 +5,15 @@ export const events = {
         events: [
           {
             id: 1,
-            artist: "Martinho da Vila",
-            time: "18:00",
-            video: "https://www.w3schools.com/html/mov_bbb.mp4"
+            artist: "Artista - Martinho da Vila",
+            time: "18:00 - 19:00",
+            video: "https://videos.pexels.com/video-files/853767/853767-sd_640_360_25fps.mp4"
           },
           {
             id: 2,
-            artist: "Artista 2",
-            time: "20:00",
-            video: "https://www.w3schools.com/html/mov_bbb.mp4"
+            artist: "CHOPP EM DOBRO",
+            time: "até 23:00",
+            video: "https://videos.pexels.com/video-files/7039914/7039914-sd_640_360_25fps.mp4"
           }
         ]
       },
@@ -22,9 +22,9 @@ export const events = {
         events: [
           {
             id: 3,
-            artist: "Artista 3",
-            time: "19:00",
-            video: "https://www.w3schools.com/html/mov_bbb.mp4"
+            artist: "Artista - Alok",
+            time: "22:00 até 00:00",
+            video: "https://videos.pexels.com/video-files/4124198/4124198-sd_640_360_24fps.mp4"
           }
         ]
       },
@@ -33,16 +33,10 @@ export const events = {
         events: [
           {
             id: 4,
-            artist: "Artista 4",
-            time: "21:00",
-            video: "https://www.w3schools.com/html/mov_bbb.mp4"
+            artist: "Clube do Livro",
+            time: "Somente Convidados - 18:00",
+            video: "https://videos.pexels.com/video-files/4860897/4860897-sd_960_506_25fps.mp4"
           },
-          {
-            id: 5,
-            artist: "Artista 5",
-            time: "22:00",
-            video: "https://www.w3schools.com/html/mov_bbb.mp4"
-          }
         ]
       },
       {
@@ -50,16 +44,10 @@ export const events = {
         events: [
           {
             id: 6,
-            artist: "Artista 6",
-            time: "18:30",
-            video: "https://www.w3schools.com/html/mov_bbb.mp4"
+            artist: "Campeonato de Sinuca",
+            time: "21:00",
+            video: "https://videos.pexels.com/video-files/5051958/5051958-sd_640_360_25fps.mp4"
           },
-          {
-            id: 7,
-            artist: "Artista 7",
-            time: "20:30",
-            video: "https://www.w3schools.com/html/mov_bbb.mp4"
-          }
         ]
       },
       {
@@ -67,15 +55,15 @@ export const events = {
         events: [
           {
             id: 8,
-            artist: "Artista 8",
-            time: "19:30",
-            video: "https://www.w3schools.com/html/mov_bbb.mp4"
+            artist: "Jogo da Seleção",
+            time: "21:30",
+            video: "https://videos.pexels.com/video-files/6104270/6104270-sd_640_360_25fps.mp4"
           },
           {
             id: 9,
-            artist: "Artista 9",
-            time: "21:30",
-            video: "https://www.w3schools.com/html/mov_bbb.mp4"
+            artist: "CHOPP EM DOBRO",
+            time: "até 23:30",
+            video: "https://videos.pexels.com/video-files/7039914/7039914-sd_640_360_25fps.mp4"
           }
         ]
       }
