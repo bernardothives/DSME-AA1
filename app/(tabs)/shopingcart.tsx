@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { Stack, useFocusEffect } from "expo-router"; // useFocusEffect aqui
+import { Stack, useFocusEffect } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { COLORS } from "@/constants/Colors";
 
