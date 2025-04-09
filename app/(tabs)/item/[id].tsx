@@ -31,18 +31,14 @@ export default function ItemDetails() {
     try {
       const storedCart = await AsyncStorage.getItem("cart");
       let cart = storedCart ? JSON.parse(storedCart) : [];
-
-      // Verifica se o item já existe no carrinho
       const existingIndex = cart.findIndex(
         (cartItem: any) =>
           cartItem.storeId === storeId && cartItem.id === item.id
       );
 
       if (existingIndex >= 0) {
-        // Se já existe, apenas incrementa a quantidade
         cart[existingIndex].quantity += 1;
       } else {
-        // Se não existe, adiciona novo item
         cart.push({
           ...item,
           storeId,

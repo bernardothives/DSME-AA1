@@ -6,7 +6,6 @@ import { View, TouchableOpacity } from 'react-native';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
 function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
-  // Filter out routes that should be hidden
   const visibleRoutes = state.routes.filter((route) =>
     !['item/[id]', 'menu/[id]', 'store/[id]'].includes(route.name)
   );

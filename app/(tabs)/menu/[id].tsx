@@ -1,4 +1,3 @@
-// app/menu/[id].tsx
 import React from "react";
 import {
   Text,
@@ -16,8 +15,6 @@ import { menuItems, MenuItemType } from "@/constants/MenuItems";
 export default function MenuScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams<{ id: string }>();
-
-  // Se não houver id ou não houver itens para esse id, volta array vazio
   const items: MenuItemType[] = id && menuItems[id] ? menuItems[id] : [];
 
   return (
@@ -36,7 +33,6 @@ export default function MenuScreen() {
               onPress={() =>
                 router.push({
                   pathname: "/item/[id]",
-                  // passando também o storeId
                   params: { id: item.id, storeId: id },
                 })
               }

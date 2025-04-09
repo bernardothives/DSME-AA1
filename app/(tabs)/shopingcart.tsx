@@ -22,8 +22,6 @@ interface CartItem {
 
 export default function ShoppingCart() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-
-  // Carrega o carrinho do AsyncStorage
   const loadCart = async () => {
     try {
       const data = await AsyncStorage.getItem("cart");
@@ -37,19 +35,16 @@ export default function ShoppingCart() {
     }
   };
 
-  // Executa o loadCart sempre que a tela ficar em foco
   useFocusEffect(
     useCallback(() => {
       loadCart();
     }, [])
   );
 
-  // Atualiza a quantidade de um item no carrinho
   const updateQuantity = async (index: number, newQuantity: number) => {
     try {
       const newCart = [...cartItems];
       if (newQuantity <= 0) {
-        // Remove o item se a quantidade for zero ou negativa
         newCart.splice(index, 1);
       } else {
         newCart[index].quantity = newQuantity;
@@ -61,7 +56,6 @@ export default function ShoppingCart() {
     }
   };
 
-  // Esvaziar o carrinho completamente
   const clearCart = async () => {
     try {
       await AsyncStorage.removeItem("cart");
@@ -71,7 +65,6 @@ export default function ShoppingCart() {
     }
   };
 
-  // Calcula o total do carrinho
   const cartTotal = cartItems.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);

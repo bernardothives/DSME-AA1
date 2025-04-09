@@ -18,9 +18,7 @@ import { stores } from "@/constants/Stores";
 export default function StoreDetails() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
-
   const store = stores.find((s) => s.id === id);
-
 
   if (!store) {
     return (
@@ -38,18 +36,13 @@ export default function StoreDetails() {
         <Stack.Screen options={{ headerShown: false }} />
         <ScrollView contentContainerStyle={styles.container}>
           <Image source={{ uri: store.banner }} style={styles.banner} />
-
           <Text style={styles.name}>{store.name}</Text>
           <Text style={styles.description}>{store.description}</Text>
-
-          {/* Galeria de fotos */}
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.photosContainer}>
             {store.photos?.map((photo, index) => (
               <Image key={index} source={{ uri: photo }} style={styles.photo} />
             ))}
           </ScrollView>
-
-          {/* Contatos */}
           <View style={styles.contactContainer}>
             {store.phone && (
               <TouchableOpacity onPress={() => openLink(`tel:${store.phone}`)} style={styles.iconButton}>
@@ -72,13 +65,10 @@ export default function StoreDetails() {
               </TouchableOpacity>
             )}
           </View>
-
-          {/* Botões extras */}
           <TouchableOpacity style={styles.button} onPress={() => openLink(store.deliveryApp)}>
             <Ionicons name="bicycle-outline" size={20} color={COLORS.primary} />
             <Text style={styles.buttonText}>Pedir pelo Delivery</Text>
           </TouchableOpacity>
-
           <TouchableOpacity
             style={styles.button}
             onPress={() => router.push({ pathname: "/menu/[id]", params: { id: store.id } })}
