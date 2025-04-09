@@ -33,7 +33,6 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
             canPreventDefault: true,
           });
 
-          // Only navigate if the tab press wasn't prevented
           if (!isFocused && !event.defaultPrevented) {
             navigation.navigate(route.name);
           }
@@ -47,7 +46,7 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
           >
             {options.tabBarIcon &&
               options.tabBarIcon({
-                focused: isFocused, // Added 'focused' property
+                focused: isFocused,
                 size: 24,
                 color: isFocused ? COLORS.primary : COLORS.grey,
               })}
@@ -101,7 +100,6 @@ export default function TabLayout() {
           ),
         }}
       />
-      {/* Hidden routes */}
       <Tabs.Screen
         name="item/[id]"
         options={{ tabBarButton: () => null }}

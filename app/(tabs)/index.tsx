@@ -15,8 +15,8 @@ import { Stack } from "expo-router";
 import MapView, { Marker } from "react-native-maps";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants/Colors";
+import { location } from "@/constants/Location"; 
 
-// Exemplo de imagens do local (adicione quantas quiser)
 const photos = [
   require("@/assets/images/photo1.png"),
   require("@/assets/images/photo2.png"),
@@ -25,11 +25,8 @@ const photos = [
 ];
 
 export default function Index() {
-  // Coordenadas do local
-  const latitude = -23.563210;
-  const longitude = -46.654250;
-
-  // Função para iniciar a rota de navegação
+  const latitude = location.latitude;
+  const longitude = location.longitude;
   const openMaps = () => {
     const url =
       Platform.OS === "ios"
@@ -44,24 +41,15 @@ export default function Index() {
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }}>
         <Stack screenOptions={{ headerShown: false }} />
-
-        {/* Use ScrollView para rolar a tela se necessário */}
         <ScrollView contentContainerStyle={styles.container}>
-          {/* Logo */}
           <Image source={require("@/assets/images/logo.png")} style={styles.logo} />
-
-          {/* Título e slogan */}
           <Text style={styles.slogan}>Rode o mundo sem sair do seu prato</Text>
-
-          {/* Descrição geral */}
           <Text style={styles.description}>
             Bem-vindo ao Giro do Sabor! Somos um Food Park onde você pode
             experimentar sabores de diferentes partes do mundo, tudo em um
             só lugar. Venha nos visitar e vivencie uma experiência gastronômica
             inesquecível.
           </Text>
-
-          {/* Carrossel de fotos */}
           <ScrollView
             horizontal
             pagingEnabled
@@ -72,18 +60,13 @@ export default function Index() {
               <Image key={index} source={photo} style={styles.photo} />
             ))}
           </ScrollView>
-
-          {/* Ícones de contato */}
           <View style={styles.contactContainer}>
-            {/* Telefone */}
             <TouchableOpacity
               onPress={() => Linking.openURL("tel:+55000000000")}
               style={styles.iconButton}
             >
               <Ionicons name="call-outline" size={24} color={COLORS.primary} />
             </TouchableOpacity>
-
-            {/* WhatsApp */}
             <TouchableOpacity
               onPress={() =>
                 Linking.openURL("whatsapp://send?phone=+55000000000")
@@ -92,16 +75,12 @@ export default function Index() {
             >
               <Ionicons name="logo-whatsapp" size={24} color={COLORS.primary} />
             </TouchableOpacity>
-
-            {/* Instagram */}
             <TouchableOpacity
               onPress={() => Linking.openURL("https://instagram.com/seuPerfil")}
               style={styles.iconButton}
             >
               <Ionicons name="logo-instagram" size={24} color={COLORS.primary} />
             </TouchableOpacity>
-
-            {/* E-mail */}
             <TouchableOpacity
               onPress={() => Linking.openURL("mailto:contato@girodosabor.com")}
               style={styles.iconButton}
@@ -109,8 +88,6 @@ export default function Index() {
               <Ionicons name="mail-outline" size={24} color={COLORS.primary} />
             </TouchableOpacity>
           </View>
-
-          {/* Mapa com botão de navegação sobreposto */}
           <View style={styles.mapContainer}>
             <MapView
               style={styles.map}
@@ -127,7 +104,6 @@ export default function Index() {
                 description="Nosso endereço"
               />
             </MapView>
-            {/* Botão de navegação sobreposto */}
             <TouchableOpacity style={styles.navigateButton} onPress={openMaps}>
               <Ionicons name="navigate-outline" size={25} color={COLORS.primary} />
             </TouchableOpacity>
@@ -184,7 +160,6 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
   },
-  // Botão de navegação posicionado no canto inferior direito do mapa
   navigateButton: {
     position: "absolute",
     bottom: 10,
@@ -192,8 +167,8 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.surface,
     padding: 10,
     borderRadius: 20,
-    elevation: 3, // sombra para Android
-    shadowColor: COLORS.surface, // sombra para iOS
+    elevation: 3,
+    shadowColor: COLORS.surface,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,

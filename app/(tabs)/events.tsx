@@ -10,7 +10,6 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Stack } from "expo-router";
 import { ResizeMode, Video } from "expo-av";
 import { COLORS } from "@/constants/Colors";
-// Importa os dados da programação do arquivo JSON
 import { events } from "@/constants/Events";
 
 export default function ProgramacaoSemanal() {
@@ -73,7 +72,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   eventScroll: {
-    // Espaço para personalizações se necessário
   },
   eventCard: {
     marginRight: 15,
